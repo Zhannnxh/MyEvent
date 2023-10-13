@@ -17,4 +17,15 @@ class Event extends CI_Controller
         $this->load->view("Event/Index");
         $this->load->view("Theme/Footer");
     }
+
+    public function insert()
+    {
+        $update = $this-> MEvent->update($id_contact);
+
+        if ($update) {
+            redirect('Event');
+        } else {
+            echo "gagal";
+        }
+    }
 }

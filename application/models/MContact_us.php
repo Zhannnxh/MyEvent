@@ -21,7 +21,7 @@ class MContact_us extends CI_Model
         $this->nama_contact = $post['nama_contact'];
         $this->email = $post['email'];
         $this->perihal = $post['perihal'];
-        $this->pesan = $post['post'];
+        $this->pesan = $post['pesan'];
 
         $query = $this->db->insert('tb_contact_us', $this);
 
@@ -38,9 +38,9 @@ class MContact_us extends CI_Model
         $this->nama_contact = $post['nama_contact'];
         $this->email = $post['email'];
         $this->perihal = $post['perihal'];
-        $this->pesan = $post['post'];
+        $this->pesan = $post['pesan'];
 
-        $query = $this->db->insert('tb_contact_us', $this, ['id_contact_us'=>$id]);
+        $query = $this->db->update('tb_contact_us', $this, ['id_contact_us'=>$id]);
 
         if ($query){
             return true;
