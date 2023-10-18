@@ -23,43 +23,40 @@
                             <td><?= $event['tempat_event']?></td>
                             <td><?= $event['harga']?></td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-"></a>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModals<?= $event ['id_event']?>">Edit</a>
+                                <a href="<?= base_url('Event/delete/') .$event["id_event"]?>" class="btn btn-danger">Hapus</a>
                             </td>
                             </tr>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModals<?= $event ['id_event']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Data</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit data</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+        </div>
+        <form action="<?= base_url('Event/update/') . $event['id_event'] ?>" method="POST">
       <div class="modal-body">
-
-        <form action="">
             <div class="form-group mb-3">
                 <label for="">Event</label>
-                <input type="text" name="nama_event" class="form-control" value="<?=$event ['nama_event']?>">
+                <input type="text" name="nama_event" class="form-control" value="<?= $event ['nama_event']?>">
             </div>
             <div class="form-group mb-3">
                 <label for="">Tanggal</label>
-                <input type="date" name="tanggal_event" class="form-control" value="<?=$event ['tanggal_event']?>">
+                <input type="text" name="tanggal_event" class="form-control" value="<?= $event ['tanggal_event']?>">
             </div>
             <div class="form-group mb-3">
                 <label for="">Tempat</label>
-                <input type="text" name="tempat_event" class="form-control" value="<?=$event ['tempat_event']?>">
+                <input type="text" name="tempat_event" class="form-control" value="<?= $event ['tempat_event']?>">
             </div>
             <div class="form-group mb-3">
                 <label for="">Harga</label>
-                <input type="double" name="harga" class="form-control" value="<?=$event ['harga']?>">
+                <input type="int" name="harga" class="form-control" value="<?= $event ['harga']?>">
             </div>
+          </div>
+          <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
         </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
@@ -81,7 +78,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Add data</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="<?=base_url('Event/insert/') ?>" method="POST"></form>
+      <form action="<?=base_url('Event/insert') ?>" method="POST">
         <div class="modal-body">
             <div class="form-group mb-3">
                 <label for="">Event</label>
@@ -97,15 +94,13 @@
             </div>
             <div class="form-group mb-3">
                 <label for="">Harga</label>
-                <input type="double" name="harga_event" class="form-control">
+                <input type="int" name="harga" class="form-control">
             </div>
-        </form>
-
-      </div>
+            </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

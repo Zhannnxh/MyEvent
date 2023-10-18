@@ -20,10 +20,32 @@ class Event extends CI_Controller
 
     public function insert()
     {
-        $update = $this-> MEvent->update($id_contact);
+        $insert = $this-> MEvent->create();
+
+        if ($insert) {
+            redirect('Event');
+        } else {
+            echo "gagal";
+        }
+    }
+
+    public function update($id_event)
+    {
+        $update = $this->MEvent->update($id_event);
 
         if ($update) {
-            redirect('Event');
+            redirect('Event') ;
+        } else {
+            echo "gagal" ; 
+        }
+    }
+
+    public function delete($id_event)
+    {
+        $delete = $this->MEvent->delete($id_event);
+
+        if ($delete) {
+            redirect('Event') ;
         } else {
             echo "gagal";
         }

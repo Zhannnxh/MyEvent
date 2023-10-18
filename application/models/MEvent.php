@@ -45,7 +45,7 @@ class MEvent extends CI_Model
         if ($query){
             return true;
         } else{
-            false;
+            return false;
         }
     }
 
